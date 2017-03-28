@@ -83,6 +83,9 @@ class Measure extends Component {
     // bail out if we shouldn't measure
     if (!this.props.shouldMeasure) return
 
+    // More info here: https://facebook.github.io/react/docs/refs-and-the-dom.html#caveats
+    if (!this._node) return
+
     const dimensions = this.getDimensions(this._node, includeMargin, useClone)
     const isChildFunction = (typeof this.props.children === 'function')
 
